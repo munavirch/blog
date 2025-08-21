@@ -14,6 +14,7 @@ export const SITE = {
   editPost: {
     enabled: false,
     text: "Edit page",
+    url: "https://github.com/munavirch/blog/edit/main/",
   },
   dynamicOgImage: true,
   dir: "ltr", // "rtl" | "auto"
