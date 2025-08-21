@@ -1,7 +1,7 @@
 export const SITE = {
   website: "https://munavirch.github.io/blog/", // replace this with your deployed domain
   author: "Munavir Chavody",
-  profile: "https://satnaing.dev/",
+  profile: "https://munavirch.github.io/blog/",
   desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
   title: "Munavir Chavody",
   ogImage: "astropaper-og.jpg",
@@ -12,9 +12,8 @@ export const SITE = {
   showArchives: true,
   showBackButton: true, // show back button in post detail
   editPost: {
-    enabled: true,
+    enabled: false,
     text: "Edit page",
-    url: "https://github.com/satnaing/astro-paper/edit/main/",
   },
   dynamicOgImage: true,
   dir: "ltr", // "rtl" | "auto"
