@@ -11,20 +11,8 @@ tags:
   - bare-metal
   - kubernetes
   - homelab
-description: "I'm starting an exciting journey to build my own Kubernetes on bare metal, from scratch!"
+description: "I'm starting an exciting journey to build my own Kubernetes cluster on bare metal, from scratch!"
 ---
-
-
-
-<figure>
-  <img
-    src="https://images.pexels.com/photos/159618/still-life-school-retro-ink-159618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-    alt="Free Classic wooden desk with writing materials, vintage clock, and a leather bag. Stock Photo"
-  />
-    <figcaption class="text-center">
-    Photo by <a href="https://www.pexels.com/photo/brown-wooden-desk-159618/">Pixabay</a>
-  </figcaption>
-</figure>
 
 ## Table of contents
 
@@ -75,6 +63,7 @@ Most of the orders were smooth except for the motherboard (B560M was out of stoc
 
 We kept the budget under ₹30K, which I think is a very affordable. My initial assumption was *that if half the cost of hardware can get us 6 months of cloud run time for three 2 vCPU and 8 GiB of memory, it doesn't make any sense to purchase the hardware*. Here's the data by Grok for how long we can run for across cloud for 15K rupees.
 
+<div class="overflow-x-auto">
 
 |Platform|Instance Type|Hourly Cost per Instance (USD)|Hourly Cost for 3 Instances (USD)|Hourly Cost for 3 Instances (INR)|Max Runtime (hours)|Max Runtime (days) |
 |---|---|---|---|---|---|---|
@@ -85,6 +74,8 @@ We kept the budget under ₹30K, which I think is a very affordable. My initial 
 |DigitalOcean|Basic Droplet|0.0292|0.0876|7.36|2,039|85.0|
 |Linode (Akamai)|Shared 8 GB|0.0292|0.0876|7.36|2,039|85.0|
 |Vultr|Cloud Compute 2 vCPU/8 GB|0.06|0.18|15.12|992|41.3|
+
+</div>
 
 P.S.: These numbers are purely for the reference of readers and I haven't cross checked it. I was in it too deep 🤣.
 
@@ -97,8 +88,11 @@ It was a long wait for the parts to arrive. Finally, after around 2 weeks, every
 
 Now, the moment of truth: powering it on. The PSU came with a 16A plug but my socket was 6A, so I had to get a connector first. Switched it on and… BOOM — fans spinning! Honestly, I was expecting a few hiccups, but it went surprisingly smooth.
 
+![Assembly in-process](@/assets/images/rig-final.jpg)
+<div class="text-center text-gray-700">Look at that thing of beauty!</div>
+
 ## What's Next?
 
-Next, we'll the setting up Proxmox and launching a sample to VM. We'll also explore Proxmox cluster (first, I'll have to learn what I'm doing 🤣).
+Next, we'll the setting up Proxmox and launch a sample VM. We'll also explore Proxmox cluster (first, I'll have to learn what I'm doing 🤣).
 
 From a hardware standpoint, I'm still lacking a UPS and automated shutdowns. But it's fine for now. We'll get those once we get our K8s cluster up and running.
