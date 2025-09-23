@@ -93,6 +93,6 @@ Now, the moment of truth: powering it on. The PSU came with a 16A plug but my so
 
 ## What's Next?
 
-Next, we'll the setting up Proxmox and launch a sample VM. We'll also explore Proxmox cluster (first, I'll have to learn what I'm doing 🤣).
+[Next, we'll the setting up Proxmox and launch a sample VM](/blog/posts/journey-to-bare-metal-part-2-virtualisation-layer). We'll also explore Proxmox cluster (first, I'll have to learn what I'm doing 🤣).
 
 From a hardware standpoint, I'm still lacking a UPS and automated shutdowns. But it's fine for now. We'll get those once we get our K8s cluster up and running.
