@@ -19,22 +19,7 @@ const posts = await getCollection("blog");
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured && !data.tags.includes('series'));
-console.log(recentPosts)
-const series = [
-  {
-    id: "series-1",
-    data:{
-      author: 'Munavir Chavody',
-      pubDatetime: "2025-09-21T15:22:00.000Z",
-      modDatetime: "2025-09-21T16:52:45.934Z",
-      title: 'Journey to Bare-Metal Kubernetes from Scratch',
-      featured: false,
-      draft: false,
-      tags: [Array],
-      description: 'This is a series of posts where I share my experience building a bare metal Kubernetes cluster in my homelab.'
-    }
-  }
-]
+const series = sortedPosts.filter(({data}) => data.tags.includes('series'))
 ---
 
 <Layout>
