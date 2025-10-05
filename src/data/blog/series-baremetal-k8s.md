@@ -20,3 +20,4 @@ In this series we'll discuss my experience buildind a bare metal Kubernete clust
 
 - [Part 1: Building the Rig](/blog/posts/journey-to-bare-metal-part-1-building-the-rig)
 - [Part 2: The Virtualisation Layer](/blog/posts/journey-to-bare-metal-part-2-virtualisation-layer)
+- [Part 3: Setting the Base for Kubernetes Nodes - Templates and Clones](/blog/posts/journey-to-bare-metal-part-3-kubernetes-nodes)

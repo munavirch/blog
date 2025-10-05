@@ -77,4 +77,4 @@ Eventually, I wanted my cluster to feel more cloud-like, where I could script VM
 
 Proxmox Virtual Environment is not just a single binary. It's a collection of serivces and tools working together.
 
-**Up Next**: We will explore more on VMs in Proxmox including templates clones and setup a basic starting point for launching our K8s nodes.
+**Up Next**: We will explore more on VMs in Proxmox including [templates clones](/blog/posts/journey-to-bare-metal-part-3-kubernetes-nodes) and setup a basic starting point for launching our K8s nodes.
