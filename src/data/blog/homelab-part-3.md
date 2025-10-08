@@ -165,10 +165,41 @@ For my installation, what I've noticed is that containerd by default doesn't ena
 
 ```bash
 # Fallback to default config
-sudo containerd config default > /etc/containerd/config.toml
+containerd config default | sudo tee /etc/containerd/config.toml
 
 # Enabling Systemd Cgroup
 sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/' /etc/containerd/config.toml
+
+# Restart containerd
+sudo systemctl restart containerd
+
+# With Ubuntu 24.04, I've noticed that the containerd group is root by default. We'll override this by creating a new group and giving ubuntu permission.
+sudo groupadd containerd
+sudo usermod -aG containerd ubuntu
+sudo chgrp containerd /var/run/containerd/containerd.sock
+sudo chmod 660 /var/run/containerd/containerd.sock
+
+# Refresh the shell
+newgrp containerd
+```
+
+Doing this won't enable unprivilaged access to containerd. Since `/var/run` is a `tmpfs`, it'll be recreated at boot, essentially resetting our changes. So, to fix this we'll create a SystemD service override that will trigger a post start command to change the group to `containerd`.
+
+```bash
+# Create override directory
+sudo mkdir -p /etc/systemd/system/containerd.service.d
+
+# Now add below lines to override.conf file in the directory created above.
+[Service]
+ExecStartPost=/bin/chown root:containerd /var/run/containerd/containerd.sock
+ExecStartPost=/bin/chmod 660 /var/run/containerd/containerd.sock
+
+# Rexec and reload daemon
+sudo systemctl daemon-reexec
+sudo systemctl daemon-reload
+
+# Restart containerd
+sudo systemctl restart containerd
 ```
 
 Next, we'll install Kubernetes packages: kubeadm, kubelet and kubectl.
